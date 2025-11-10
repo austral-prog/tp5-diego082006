@@ -16,8 +16,24 @@ def value_y(a, b, c, x):
 
 
 def to_string(a, b, c):
-    return f"f(x) = {a} * X^2 + {b} * X + {c}"
+    if a != 0 and b != 0:
+        return f"f(x) = {a} * X^2 + {b} * X + {c}"
+    elif a != 0 and b == 0:
+        return f"f(x) = {a} * X^2 + {c}"
+    elif a == 0 and b != 0:
+        return f"f(x) = {b} * X + {c}"
+    else:
+        return f"f(x) = {c}"
 
 
 def derivation(a, b, c):
-    return f"f'(x) = {2*a}x + {b}"
+    da = 2 * a
+    db = b
+    if da != 0 and db != 0:
+        return f"f'(x) = {da} * X + {db}"
+    elif da != 0 and db == 0:
+        return f"f'(x) = {da} * X"
+    elif da == 0 and db != 0:
+        return f"f'(x) = {db}"
+    else:
+        return "f'(x) = 0"
